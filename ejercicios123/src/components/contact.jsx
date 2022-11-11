@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import StatusOnLine from './statusOnLine';
-
 
 
 class Contact extends Component {
@@ -9,7 +7,7 @@ class Contact extends Component {
     constructor(props){
         super(props);
         this.state = {
-            onLine : this.false
+            onLine : false
         }
     }
 
@@ -28,13 +26,26 @@ class Contact extends Component {
                 <h3>
                     Mail {this.props.mail}
                 </h3>
-
-                <StatusOnLine />
-
+                <h3>
+                    Estado : {this.state.onLine ? 'Contacto En Línea' :'Contacto No Disponible'}
+                </h3>
+                <button onClick={this.changeState}>
+                    Change state!
+                </button>
             </div>
         );
-    }
-}
+    };
+
+    changeState = () => {
+        this.setState((prevState) => (
+            {
+                onLine : !prevState.onLine
+            }
+        ))
+    } 
+
+
+};
 
 
 Contact.propTypes = {
