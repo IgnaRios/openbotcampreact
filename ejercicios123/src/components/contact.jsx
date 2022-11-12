@@ -7,7 +7,7 @@ class Contact extends Component {
     constructor(props){
         super(props);
         this.state = {
-            onLine : false
+            conectado : false
         }
     }
 
@@ -27,7 +27,7 @@ class Contact extends Component {
                     Mail {this.props.mail}
                 </h3>
                 <h3>
-                    Estado : {this.state.onLine ? 'Contacto En Línea' :'Contacto No Disponible'}
+                    Estado : {this.state.conectado ? 'Contacto En Línea' :'Contacto No Disponible'}
                 </h3>
                 <button onClick={this.changeState}>
                     Change state!
@@ -39,7 +39,7 @@ class Contact extends Component {
     changeState = () => {
         this.setState((prevState) => (
             {
-                onLine : !prevState.onLine
+                conectado : !prevState.conectado
             }
         ))
     } 
@@ -52,7 +52,7 @@ Contact.propTypes = {
     name: PropTypes.string,
     lastname: PropTypes.string,
     mail: PropTypes.string,
-    onLine: PropTypes.bool
+    conectado: PropTypes.bool
 };
 
 
