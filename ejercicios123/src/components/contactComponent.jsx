@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ContactStatus from './contactStatus';
 
 
 class ContactComponent extends Component {
     
-    constructor(props){
-        super(props);
-        this.state = {
-            conectado : false
-        }
-    }
-
     render() {
         return (
             <div>
@@ -26,24 +20,11 @@ class ContactComponent extends Component {
                 <h3>
                     Mail {this.props.mail}
                 </h3>
-                <h3>
-                    Estado : {this.state.conectado ? 'Contacto En Línea' :'Contacto No Disponible'}
-                </h3>
-                <button onClick={this.changeState}>
-                    Change state!
-                </button>
+                <ContactStatus />
+
             </div>
         );
     };
-
-    changeState = () => {
-        this.setState((prevState) => (
-            {
-                conectado : !prevState.conectado
-            }
-        ))
-    } 
-
 
 };
 
