@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
-class Contact extends Component {
+class ContactComponent extends Component {
     
     constructor(props){
         super(props);
@@ -48,7 +48,7 @@ class Contact extends Component {
 };
 
 
-Contact.propTypes = {
+ContactComponent.propTypes = {
     name: PropTypes.string,
     lastname: PropTypes.string,
     mail: PropTypes.string,
@@ -56,4 +56,4 @@ Contact.propTypes = {
 };
 
 
-export default Contact;
+export default ContactComponent;
