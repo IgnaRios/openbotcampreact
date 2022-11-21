@@ -23,11 +23,11 @@ const Contact = () => {
                 </td>
 
                 <td>
-                    Online/Offline
+                    {true ? <button className={'btn btn-success'}>Online</button> : <button className={"btn btn-secondary"}>Offline</button>}
                 </td>
 
                 <td>
-                    Delete
+                    <button className={'btn btn-danger'}>Eliminar</button>
                 </td>
             </tr>
         </tbody>
