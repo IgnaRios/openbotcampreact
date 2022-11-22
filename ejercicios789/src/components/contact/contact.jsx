@@ -2,28 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Contact = () => {
+const Contact = ({contact}) => {
+
+
+
     return (
         <tbody>
             <tr>
                 <td>
-                    Nacho
+                    {contact.name}
                 </td>
 
                 <td>
-                    Ríos
+                    {contact.lastname}
                 </td>
 
                 <td>
-                    011-2328-7499
+                    {contact.cellphone}
                 </td>
 
                 <td>
-                    ignaciocruzrios@gmail.com
+                    {contact.email}
                 </td>
 
                 <td>
-                    {true ? <button className={'btn btn-success'}>Online</button> : <button className={"btn btn-secondary"}>Offline</button>}
+                    {contact.state ? <button className={'btn btn-success'}>Online</button> : <button className={"btn btn-secondary"}>Offline</button>}
                 </td>
 
                 <td>

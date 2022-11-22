@@ -1,74 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Contact from '../contact/contact';
+import AddForm from '../form/addForm';
+import TableHeader from '../contact/tableHeader';
 
 
 const ContactList = () => {
 
+    const [contact, setContact] = useState({
+        name: 'nacho',
+        lastname: 'rios',
+        cellphone: 1123287499,
+        email:'ignaciocruzrios@gmail.com',
+        state: false
+    });
 
+    function createContact(newContact){
+        setContact(newContact)
+    };
 
 
 
     return (
-        <div className={"d-flex flex-column"}>
-            <h1 className={"p-2"}>
+        <div>
+            <h1>
                 Contact List
             </h1>
-            <div className={"p-2"}>
-                <div>
-                    <h3>
-                        Add Contact
-                    </h3>
-                    <form className={'d-flex justify-content-center'}>
-                        <tr>
-                            <th>
-                                <input type={'text'} placeholder='Name' />
-                            </th>
-                            <th>
-                                <input type={'text'} placeholder='Lastname'/>
-                            </th>
-                            <th>
-                                <input type={'tel'} placeholder='Cellphone'/>
-                            </th>
-                            <th>
-                                <input type={'email'} placeholder='E-mail'/>
-                            </th>
-                            <th>
-                                <button className={'btn btn-primary'}>Add</button>
-                            </th>
-                        </tr>
-                    </form>
-                </div>
+            <div>
+                <AddForm update={createContact}/>
             </div>
-            <table className={"p-2"}>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-
-                    <th>
-                        LastName
-                    </th>
-
-                    <th>
-                        Cellphone
-                    </th>
-
-                    <th>
-                        Email
-                    </th>
-
-                    <th>
-                        Estate
-                    </th>
-                                
-                    <th>
-                        Delete
-                    </th>
-                </tr>
-                <Contact />
-            </table>
-            
+            <div className={'table-responsive-sm'}>
+                <table className={'table table-sm'}>
+                    <TableHeader />
+                    <Contact contact={contact} />
+                </table>  
+            </div>
         </div>
     );
 };
