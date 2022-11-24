@@ -36,7 +36,6 @@ const ContactList = () => {
         const indexContact = tempContacts.indexOf(contact);
         tempContacts[indexContact].state = !tempContacts[indexContact].state
         setContacts(tempContacts);
-        console.log(contact)
     };
 
     return (

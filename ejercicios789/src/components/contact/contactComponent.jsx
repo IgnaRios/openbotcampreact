@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from '../../MODELS/contact.class';
 
@@ -35,8 +35,8 @@ const ContactComponent = ({ contact, removeContact, updateStatus }) => {
                 <td>
                     {
                     contact.state 
-                    ?  <button onClick={ update } className={"btn btn-secondary"}>Offline</button> 
-                    : <button onClick={ update } className={'btn btn-success'}>Online</button>
+                    ?  <button onClick={ update } className={'btn btn-success'}>Conectado</button> 
+                    : <button onClick={ update } className={"btn btn-secondary"}>Desconectado</button>
                     }
                 </td>
 
@@ -52,7 +52,9 @@ const ContactComponent = ({ contact, removeContact, updateStatus }) => {
 
 
 ContactComponent.propTypes = {
- contact : PropTypes.instanceOf(Contact)
+ contact : PropTypes.instanceOf(Contact),
+ remove : PropTypes.func,
+ update : PropTypes.func
 };
 
 

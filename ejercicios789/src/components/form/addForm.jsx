@@ -2,15 +2,12 @@ import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from '../../MODELS/contact.class';
 
-
-
 const AddForm = ({ update }) => {
 
     const nameRef = useRef('');
     const lastnameRef = useRef('');
     const cellRef = useRef('');
     const emailRef = useRef('');
-
 
     function submitContact (e){
         e.preventDefault();
@@ -22,10 +19,7 @@ const AddForm = ({ update }) => {
             false
         )
         update(newContact);
-        console.log(newContact)
     };
-
-
 
     return (
         <div>
@@ -38,16 +32,16 @@ const AddForm = ({ update }) => {
             >
                 <div className={'row justify-content-md-center'}>
                     <div className={'col-md-2'}>
-                        <input ref={nameRef} type={'text'} placeholder='Name' />
+                        <input ref={nameRef} type={'text'} placeholder='Name' required />
                     </div>
                     <div className={'col-md-2'}>
-                        <input ref={lastnameRef} type={'text'} placeholder='Lastname'/>
+                        <input ref={lastnameRef} type={'text'} placeholder='Lastname' required />
                     </div>
                     <div className={'col-md-2'}>
-                        <input ref={cellRef} type={'tel'} placeholder='Cellphone'/>
+                        <input ref={cellRef} type={'tel'} placeholder='Cellphone' required />
                     </div>
                     <div className={'col-md-2'}>
-                        <input ref={emailRef} type={'email'} placeholder='E-mail'/>
+                        <input ref={emailRef} type={'email'} placeholder='E-mail' required />
                     </div>
                     <div className={'m-3'}>    
                         <button type={'submit'} className={'btn btn-primary'}>Add Contact</button>      
@@ -60,10 +54,10 @@ const AddForm = ({ update }) => {
 
 
 AddForm.propTypes = {
-    name: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired,
-    cellphone: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    lastname: PropTypes.string,
+    cellphone: PropTypes.number,
+    email: PropTypes.string,
     update: PropTypes.func.isRequired
 };
 
