@@ -24,6 +24,14 @@ const ContactList = () => {
         setContacts(tempContacts);
     };
 
+    function deleteContact (contact) {
+        
+        const tempContacts = [...contacts];
+        tempContacts.slice(contact, 1)
+        setContacts(tempContacts);
+        console.log('Se quiere borrar el contacto ', contact)
+    }
+
     return (
         <div>
             <h1>
@@ -37,7 +45,16 @@ const ContactList = () => {
             <div className={'table-responsive-sm'}>
                 <table className={'table table-sm'}>
                     <TableHeader />
-                    <ContactComponent contacts={contacts} />
+                    {contacts.map((contact, index) =>{
+                            return(
+                                <ContactComponent 
+                                    contact={contact}
+                                    key={index}
+                                    removeContact = {deleteContact}
+                                />
+                            )
+                        })
+                    }
                 </table>  
             </div>
         </div>
