@@ -25,12 +25,19 @@ const ContactList = () => {
     };
 
     function deleteContact (contact) {
-        
         const tempContacts = [...contacts];
-        tempContacts.slice(contact, 1)
+        const indexContact = tempContacts.indexOf(contact)
+        tempContacts.splice(indexContact, 1)
         setContacts(tempContacts);
-        console.log('Se quiere borrar el contacto ', contact)
-    }
+    };
+
+    function changeStatus (contact) {
+        const tempContacts = [...contacts];
+        const indexContact = tempContacts.indexOf(contact);
+        tempContacts[indexContact].state = !tempContacts[indexContact].state
+        setContacts(tempContacts);
+        console.log(contact)
+    };
 
     return (
         <div>
@@ -51,6 +58,7 @@ const ContactList = () => {
                                     contact={contact}
                                     key={index}
                                     removeContact = {deleteContact}
+                                    updateStatus = {changeStatus}
                                 />
                             )
                         })

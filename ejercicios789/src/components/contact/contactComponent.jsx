@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { Contact } from '../../MODELS/contact.class';
 
 
-const ContactComponent = ({ contact, removeContact }) => {
+const ContactComponent = ({ contact, removeContact, updateStatus }) => {
 
     function remove() {
         removeContact(contact);
-    }
+    };
+
+    function update (){
+        updateStatus(contact);
+    };
 
     return (
         <tbody>
@@ -29,7 +33,11 @@ const ContactComponent = ({ contact, removeContact }) => {
                 </td>
 
                 <td>
-                    {contact.state ? <button className={'btn btn-success'}>Online</button> : <button className={"btn btn-secondary"}>Offline</button>}
+                    {
+                    contact.state 
+                    ?  <button onClick={ update } className={"btn btn-secondary"}>Offline</button> 
+                    : <button onClick={ update } className={'btn btn-success'}>Online</button>
+                    }
                 </td>
 
                 <td>

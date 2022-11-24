@@ -4,7 +4,7 @@ import { Contact } from '../../MODELS/contact.class';
 
 
 
-const AddForm = ({update}) => {
+const AddForm = ({ update }) => {
 
     const nameRef = useRef('');
     const lastnameRef = useRef('');
@@ -60,10 +60,10 @@ const AddForm = ({update}) => {
 
 
 AddForm.propTypes = {
-    name: PropTypes.string,
-    lastname: PropTypes.string,
-    cellphone: PropTypes.number,
-    email: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    cellphone: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
     update: PropTypes.func.isRequired
 };
 
